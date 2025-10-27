@@ -27,15 +27,15 @@ Dockerイメージをダウンロードするために、Docker Hubのアカウ�
 
 プロジェクトディレクトリに移動する
 
-    ```bash
-    cd my-wordpress-site
-    ```
+```bash
+cd my-wordpress-site
+```
 
 コマンドでセットアップを実行する
 
-    ```bash
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ayct0910/docker-wp-startup/main/setup.sh)"
-    ```
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ayct0910/docker-wp-startup/main/setup.sh)"
+```
 
 
 ### セットアップ手順
@@ -82,16 +82,16 @@ docker compose down
 
 /* That's all, stop editing! Happy publishing. */ より上に記載してください。
 
-    ```bash 
-    // ローカルネットワークの他デバイスからアクセスするために環境変数からIPとポートを読み込む
-    // 別端末の閲覧を許可しない場合はlocalhost、別端末の閲覧許可したい場合はwifi接続時のIPアドレスを設定する
-    $local_ip = getenv_docker('WORDPRESS_IP', 'localhost');
-    // $local_ip = getenv_docker('WORDPRESS_IP', '192.168.100.45');
-    $local_port = getenv_docker('WORDPRESS_PORT', '8080'); // .envのポートと合わせる
+```php 
+// ローカルネットワークの他デバイスからアクセスするために環境変数からIPとポートを読み込む
+// 別端末の閲覧を許可しない場合はlocalhost、別端末の閲覧許可したい場合はwifi接続時のIPアドレスを設定する
+$local_ip = getenv_docker('WORDPRESS_IP', 'localhost');
+// $local_ip = getenv_docker('WORDPRESS_IP', '192.168.100.45');
+$local_port = getenv_docker('WORDPRESS_PORT', '8080'); // .envのポートと合わせる
 
-    define( 'WP_HOME', 'http://' . $local_ip . ':' . $local_port );
-    define( 'WP_SITEURL', 'http://' . $local_ip . ':' . $local_port );
-    ```
+define( 'WP_HOME', 'http://' . $local_ip . ':' . $local_port );
+define( 'WP_SITEURL', 'http://' . $local_ip . ':' . $local_port );
+```
 
 
 ### 作業環境の準備
