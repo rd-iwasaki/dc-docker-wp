@@ -7,6 +7,15 @@ Dockerを利用して、Mac上でWordPressのローカル開発環境を簡単�
 - macOS
 - [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)
 
+## 事前準備
+
+Dockerイメージをダウンロードするために、Docker Hubのアカウント作成と**メールアドレス認証**が必須です。
+
+1.  [Docker Hub](https://hub.docker.com/) でアカウントを作成します。
+2.  アカウント作成後に届くメールを開き、認証を完了させます。
+
+> **重要:** メール認証が完了していないと、`docker compose up` 実行時に認証エラーが発生します。認証メールのリンクには有効期限があるため、届いたらすぐにクリックしてください。期限が切れてしまった場合は、Docker Hubにログインして認証メールを再送する必要があります。
+
 ## 使い方
 
 プロジェクト用のディレクトリを作成し、その中で以下のいずれかの方法でセットアップを実行します。
@@ -16,10 +25,18 @@ Dockerを利用して、Mac上でWordPressのローカル開発環境を簡単�
 ターミナルで以下のコマンドを実行するだけで、必要なファイルがダウンロードされ、セットアップが開始されます。
 ※{my-wordpress-site}はプロジェクトディレクトリ名に変更してください。
 
+プロジェクトディレクトリに移動する
+
     ```bash
-    mkdir my-wordpress-site && cd my-wordpress-site
+    cd my-wordpress-site
+    ```
+
+コマンドでセットアップを実行する
+
+    ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ayct0910/docker-wp-startup/main/setup.sh)"
     ```
+
 
 ### セットアップ手順
 
@@ -43,23 +60,21 @@ Dockerを利用して、Mac上でWordPressのローカル開発環境を簡単�
 プロジェクトディレクトリに移動し、以下のコマンドで環境を起動・停止できます。
 `docker-compose` (v1) と `docker compose` (v2) の両方のコマンドを記載しています。お使いの環境に合わせて実行してください。
 
-**起動:**
+**起動:**　v1　/ v2
 
 ```bash
-# v1
 docker-compose up -d
-
-# v2
+```
+```bash
 docker compose up -d
 ```
 
-**停止:**
+**停止:**　v1　/ v2
 
 ```bash
-# v1
 docker-compose down
-
-# v2
+```
+```bash
 docker compose down
 ```
 
