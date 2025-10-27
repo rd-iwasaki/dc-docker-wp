@@ -95,7 +95,8 @@ define( 'WP_SITEURL', 'http://' . $local_ip . ':' . $local_port );
 
 
 ### 作業環境の準備
-    管理画面に行くとプラグイン「all-in-one-wp-migration」 があるので有効にします。
-    プラグインの機能で指定したデータのエクスポートとエクスポートした内容のインポートができるので、リポジトリに含まれている「/database_export/localhost-20251023-185942-zs6klryfd357.wpress」をインポートしてください。
 
-    以上で準備が完了いたします。
+管理画面に行くとプラグイン「all-in-one-wp-migration」 があるので有効にします。
+プラグインの機能で指定したデータのエクスポートとエクスポートした内容のインポートができるので、リポジトリに含まれている「/database_export/localhost-20251023-185942-zs6klryfd357.wpress」をインポートしてください。
+
+以上で準備が完了いたします。
