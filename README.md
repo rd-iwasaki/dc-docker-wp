@@ -80,9 +80,9 @@ docker compose down
 
 ### セットアップ完了後下記をwp-config.phpの132行目付近に追記してください。 
 
-    /* That's all, stop editing! Happy publishing. */ より上に記載してください。
+/* That's all, stop editing! Happy publishing. */ より上に記載してください。
 
-    ``` 
+    ```bash 
     // ローカルネットワークの他デバイスからアクセスするために環境変数からIPとポートを読み込む
     // 別端末の閲覧を許可しない場合はlocalhost、別端末の閲覧許可したい場合はwifi接続時のIPアドレスを設定する
     $local_ip = getenv_docker('WORDPRESS_IP', 'localhost');
