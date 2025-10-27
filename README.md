@@ -1,4 +1,4 @@
-# WordPress Local Development Starter Kit v1.0.0
+# WordPress Local Development Starter Kit v1.0.1
 
 Dockerを利用して、Mac上でWordPressのローカル開発環境を簡単に構築するためのスターターキットです。
 
