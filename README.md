@@ -66,7 +66,7 @@ docker compose down
 ### セットアップ完了後下記をwp-config.phpの132行目付近に追記してください。 
 
     /* That's all, stop editing! Happy publishing. */ より上に記載してください。
-    
+
     ``` 
     // ローカルネットワークの他デバイスからアクセスするために環境変数からIPとポートを読み込む
     // 別端末の閲覧を許可しない場合はlocalhost、別端末の閲覧許可したい場合はwifi接続時のIPアドレスを設定する
@@ -77,3 +77,10 @@ docker compose down
     define( 'WP_HOME', 'http://' . $local_ip . ':' . $local_port );
     define( 'WP_SITEURL', 'http://' . $local_ip . ':' . $local_port );
     ```
+
+
+### 作業環境の準備
+    管理画面に行くとプラグイン「all-in-one-wp-migration」 があるので有効にします。
+    プラグインの機能で指定したデータのエクスポートとエクスポートした内容のインポートができるので、リポジトリに含まれている「/database_export/localhost-20251023-185942-zs6klryfd357.wpress」をインポートしてください。
+
+    以上で準備が完了いたします。
