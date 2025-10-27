@@ -11,31 +11,19 @@ Dockerを利用して、Mac上でWordPressのローカル開発環境を簡単�
 
 プロジェクト用のディレクトリを作成し、その中で以下のいずれかの方法でセットアップを実行します。
 
-### 方法1: コマンド1つで簡単セットアップ（推奨）
+### 方法: コマンド1つで簡単セットアップ（推奨） ※初回のみ
 
 ターミナルで以下のコマンドを実行するだけで、必要なファイルがダウンロードされ、セットアップが開始されます。
 ※{my-wordpress-site}はプロジェクトディレクトリ名に変更してください。
 
     ```bash
     mkdir my-wordpress-site && cd my-wordpress-site
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/rd-iwasaki/docker-wp-startup/main/setup.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ayct0910/docker-wp-startup/main/setup.sh)"
     ```
 
-### 方法2: リポジトリをクローンしてセットアップ
+### セットアップ手順
 
-手動でファイルを管理したい場合は、リポジトリをクローンしてからスクリプトを実行します。
-
-    ```bash
-    git clone https://github.com/rd-iwasaki/docker-wp-startup.git my-wordpress-site
-    cd my-wordpress-site
-    bash setup.sh
-    ```
-
----
-
-### セットアップ手順（共通）
-
-上記いずれかの方法でセットアップを開始すると、以下の手順で進みます。
+セットアップを開始すると、以下の手順で進みます。
 
 1.  **`.env`ファイルを編集**
 
@@ -49,3 +37,43 @@ Dockerを利用して、Mac上でWordPressのローカル開発環境を簡単�
 
     セットアップが完了すると、ターミナルにWordPress管理画面のURL、管理者ユーザー名、パスワードが表示されます。
     表示された情報を使って、すぐにWordPressにログインできます。
+
+### ２回目以降の起動・停止
+
+プロジェクトディレクトリに移動し、以下のコマンドで環境を起動・停止できます。
+`docker-compose` (v1) と `docker compose` (v2) の両方のコマンドを記載しています。お使いの環境に合わせて実行してください。
+
+**起動:**
+
+```bash
+# v1
+docker-compose up -d
+
+# v2
+docker compose up -d
+```
+
+**停止:**
+
+```bash
+# v1
+docker-compose down
+
+# v2
+docker compose down
+```
+
+### セットアップ完了後下記をwp-config.phpの132行目付近に追記してください。 
+
+    /* That's all, stop editing! Happy publishing. */ より上に記載してください。
+    
+    ``` 
+    // ローカルネットワークの他デバイスからアクセスするために環境変数からIPとポートを読み込む
+    // 別端末の閲覧を許可しない場合はlocalhost、別端末の閲覧許可したい場合はwifi接続時のIPアドレスを設定する
+    $local_ip = getenv_docker('WORDPRESS_IP', 'localhost');
+    // $local_ip = getenv_docker('WORDPRESS_IP', '192.168.100.45');
+    $local_port = getenv_docker('WORDPRESS_PORT', '8080'); // .envのポートと合わせる
+
+    define( 'WP_HOME', 'http://' . $local_ip . ':' . $local_port );
+    define( 'WP_SITEURL', 'http://' . $local_ip . ':' . $local_port );
+    ```
