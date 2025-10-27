@@ -60,7 +60,7 @@ Dockerイメージをダウンロードするために、Docker Hubのアカウ�
 プロジェクトディレクトリに移動し、以下のコマンドで環境を起動・停止できます。
 `docker-compose` (v1) と `docker compose` (v2) の両方のコマンドを記載しています。お使いの環境に合わせて実行してください。
 
-**起動:**　v1　/ v2
+**起動:**　v1/v2
 
 ```bash
 docker-compose up -d
@@ -69,7 +69,7 @@ docker-compose up -d
 docker compose up -d
 ```
 
-**停止:**　v1　/ v2
+**停止:**　v1/v2
 
 ```bash
 docker-compose down
